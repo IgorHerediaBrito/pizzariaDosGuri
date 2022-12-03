@@ -24,6 +24,8 @@ const dbUtils = require('../../../../utils/db-utils');
 
         await dbUtils.execSQLQuery(`UPDATE pizzas SET status_id = ${statusPizza[0].idStatus} WHERE idPizzas = ${id}`);
 
-        res.status(200).json({ message: 'Status atualizado com sucesso!' });
+        return res.status(200).json({ message: 'Status atualizado com sucesso!' });
+    } else {
+        return res.status(405).json({ message: 'Método não permitido!' });
     }
 }

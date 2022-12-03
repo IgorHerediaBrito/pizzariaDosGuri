@@ -23,7 +23,7 @@ const dbUtils = require('../../../utils/db-utils');
             await dbUtils.execSQLQuery(`INSERT INTO pizza_sabor (pizza_id, sabor_id) VALUES (${idPizzas}, ${sabor})`);
         });
 
-        res.status(200).json({
+        return res.status(200).json({
             id: idPizzas
         });
     } else if ( req.method === 'GET' ) {
@@ -49,6 +49,8 @@ const dbUtils = require('../../../utils/db-utils');
             })
         }
 
-        res.status(200).json(pizzasFormatadas);
+        return res.status(200).json(pizzasFormatadas);
+    } else {
+        return res.status(405).json({ message: 'Método não permitido!' });
     }
 }

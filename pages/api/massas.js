@@ -16,6 +16,8 @@ const dbUtils = require('../../utils/db-utils');
             }
         });
 
-        res.status(200).json(massasFormatados);
+        return res.status(200).json(massasFormatados);
+    } else {
+        return res.status(405).json({ message: 'Método não permitido!' });
     }
 }
