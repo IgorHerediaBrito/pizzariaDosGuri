@@ -23,7 +23,8 @@ export default function Home() {
 	const [bordaSelecionada, setBordaSelecionada] = useState('none');
 
 	useEffect(() => {
-		axios.get('http://localhost:3000/api/sabores')
+		const baseUrl = document.location.origin;
+		axios.get(`${baseUrl}/api/sabores`)
 			.then((response) => {
 				setSabores(response.data);
 			})
@@ -31,7 +32,7 @@ export default function Home() {
 				console.log(error);
 			})
 
-		axios.get('http://localhost:3000/api/massas')
+		axios.get(`${baseUrl}/api/massas`)
 			.then((response) => {
 				setMassas(response.data);
 			}
@@ -41,7 +42,7 @@ export default function Home() {
 			}
 			)
 
-		axios.get('http://localhost:3000/api/bordas')
+		axios.get(`${baseUrl}/api/bordas`)
 			.then((response) => {
 				setBordas(response.data);
 			}
@@ -53,7 +54,8 @@ export default function Home() {
 	}, []);
 
 	const inserePizza = (pizza) => {
-		axios.post('http://localhost:3000/api/pizzas', {
+		const baseUrl = document.location.origin;
+		axios.post(`${baseUrl}/api/pizzas`, {
 			pizza: pizza
 		})
 			.then((response) => {	

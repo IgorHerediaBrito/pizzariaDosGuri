@@ -15,7 +15,8 @@ export default function Home() {
 	const [pizzas, setPizzas] = useState([]);
 
 	useEffect(() => {
-		axios.get('http://localhost:3000/api/pizzas')
+		const baseUrl = document.location.origin;
+		axios.get(`${baseUrl}/api/pizzas`)
 			.then((response) => {
 				setPizzas(response.data);
 			})
@@ -25,7 +26,8 @@ export default function Home() {
 	}, []);
 
 	const atualizaStatus = (pizza, status) => {
-		axios.put(`http://localhost:3000/api/pizzas/${pizza.id}/${status}`)
+		const baseUrl = document.location.origin;
+		axios.put(`${baseUrl}/api/pizzas/${pizza.id}/${status}`)
 			.then((response) => {
 				const index = pizzas.findIndex((p) => p.id === pizza.id);
 				const newPizzas = [...pizzas];

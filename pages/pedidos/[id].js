@@ -17,7 +17,8 @@ export default function Home() {
 
 	useEffect(() => {
         if( query ){
-            axios.get(`http://localhost:3000/api/pizzas/${query.id}`)
+            const baseUrl = document.location.origin;
+            axios.get(`${baseUrl}/api/pizzas/${query.id}`)
                 .then((response) => {
                     setPedido(response.data);
 
