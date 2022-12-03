@@ -1,5 +1,3 @@
-import { useState } from "react";
-import { useRouter } from "next/router";
 import { Stack, Typography } from "@mui/material";
 import Image from "next/image";
 import logo from "../../public/images/logo.png";

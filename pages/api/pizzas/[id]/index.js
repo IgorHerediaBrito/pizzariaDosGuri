@@ -29,6 +29,6 @@ const dbUtils = require('../../../../utils/db-utils');
             sabores: nomesSabores.map((sabor) => sabor.nomeSabor).join(', ')
         }
 
-        res.status(200).json(pizzaFormatada);
+        return res.status(200).json(pizzaFormatada);
     }
 }
